@@ -1,0 +1,7 @@
+interface:
+  display_name: "Easy Tunnel"
+  short_description: "Expose a local port through Cloudflare"
+  default_prompt: "Use $easy-tunnel to expose my local web server through a temporary Cloudflare tunnel."
+
+policy:
+  allow_implicit_invocation: false
