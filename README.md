@@ -17,7 +17,7 @@ No Cloudflare account or locally installed `cloudflared` binary is required.
 Invoke Codex's built-in skill installer and ask it to install this repository:
 
 ```text
-$skill-installer Install the skill from https://github.com/puzanov/easy-tunnel-skill
+$skill-installer Install easy-tunnel from the repository root at https://github.com/puzanov/easy-tunnel-skill
 ```
 
 For a manual user-level installation:
