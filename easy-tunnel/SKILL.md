@@ -1,13 +1,19 @@
 ---
 name: easy-tunnel
-description: Expose an already-running local HTTP service through a temporary Cloudflare Quick Tunnel using Docker. Use only when the user explicitly invokes `$easy-tunnel`; never activate it from project context or an inferred need for a tunnel.
+description: Expose an already-running local HTTP service through a temporary Cloudflare Quick Tunnel using Docker. Use only when the user explicitly selects or invokes the easy-tunnel skill for the current request; never activate it from project context or an inferred need for a tunnel.
+license: MIT. See LICENSE for full terms
+compatibility: Requires shell command execution, Docker with internet access, and an already-running local HTTP or HTTPS service.
+metadata:
+  author: "puzanov"
+  version: "1.1.0"
+  invocation: "explicit-only"
 ---
 
 # Easy Tunnel
 
 Create a temporary public URL for an already-running local web service. Use the official `cloudflare/cloudflared` Docker image, install nothing on the host, return a verified `trycloudflare.com` URL, and keep the tunnel running until the user asks to stop it or stops it themselves.
 
-Interpret the request in any language. Explicit invocation of `$easy-tunnel` is the activation signal; surrounding words do not need to be English.
+Interpret the request in any language. Activation requires the user to explicitly select or invoke this skill through the host agent's skill mechanism. Surrounding words do not need to be English.
 
 ## Constraints
 
@@ -55,7 +61,7 @@ Allow a short propagation interval, then verify the public URL with an HTTP requ
 
 A successful invocation is not complete until the user receives the verified public URL. Present it prominently and also state the tunnel container name.
 
-Immediately after providing the URL, explicitly ask the user to tell you when to shut the tunnel down. Do not stop it automatically. If the user wants it left running, leave it running and wait for a later instruction. A later unambiguous shutdown request continues this explicitly invoked workflow and does not require the user to invoke `$easy-tunnel` again.
+Immediately after providing the URL, explicitly ask the user to tell you when to shut the tunnel down. Do not stop it automatically. If the user wants it left running, leave it running and wait for a later instruction. A later unambiguous shutdown request continues this explicitly invoked workflow and does not require the user to invoke the skill again.
 
 When shutdown is requested, remove only the recorded tunnel container:
 
