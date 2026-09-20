@@ -37,10 +37,6 @@ The skill is intentionally explicit-only. Invoke it by name in any language:
 $easy-tunnel expose my local server
 ```
 
-```text
-$easy-tunnel открой туннель к моему локальному серверу
-```
-
 You may provide a port directly:
 
 ```text
